@@ -7,80 +7,303 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		CF9480B324CD7003009AC9CA /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CF9480B224CD7003009AC9CA /* main.c */; };
+		CF349AD224D16D130006F5C7 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF349ACA24D168E10006F5C7 /* SDL2_image.framework */; };
+		CF349AD324D16D130006F5C7 /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF349ACA24D168E10006F5C7 /* SDL2_image.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CF349AD824D16E9E0006F5C7 /* CakeFloor.png in Resources */ = {isa = PBXBuildFile; fileRef = CF349AD724D16E9E0006F5C7 /* CakeFloor.png */; };
+		CF7B644324D1603400F6C48E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CF9480B224CD7003009AC9CA /* main.c */; };
+		CF7B644424D1603400F6C48E /* SQLevel.c in Sources */ = {isa = PBXBuildFile; fileRef = CF186B7E24CE774100AB5D06 /* SQLevel.c */; };
+		CF7B644524D1603400F6C48E /* SQTile.c in Sources */ = {isa = PBXBuildFile; fileRef = CF186B7B24CE6A6900AB5D06 /* SQTile.c */; };
+		CF7B644624D1603400F6C48E /* SQTileMap.c in Sources */ = {isa = PBXBuildFile; fileRef = CF186B7524CE639900AB5D06 /* SQTileMap.c */; };
+		CF7B644C24D160A600F6C48E /* SDL2.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF9480CA24CD700C009AC9CA /* SDL2.framework */; };
+		CF7B644D24D160A600F6C48E /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF9480CA24CD700C009AC9CA /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		CF8AA37D24D5D009004598D9 /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = CF8AA37C24D5D009004598D9 /* cJSON.c */; };
+		CF8AA38024D5D09B004598D9 /* cJSON_Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = CF8AA37F24D5D09B004598D9 /* cJSON_Utils.c */; };
+		CF8AA38524D5F5FC004598D9 /* Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = CF8AA38424D5F5FC004598D9 /* Utils.c */; };
+		CF8AA39724D601D8004598D9 /* Level0.json in Resources */ = {isa = PBXBuildFile; fileRef = CF8AA39624D601D8004598D9 /* Level0.json */; };
 /* End PBXBuildFile section */
 
+/* Begin PBXContainerItemProxy section */
+		CF349AC924D168E10006F5C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF349AC324D168E10006F5C7 /* SDL_image.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BE1FA72E07AF4C45004B6283;
+			remoteInfo = Framework;
+		};
+		CF349ACB24D168E10006F5C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF349AC324D168E10006F5C7 /* SDL_image.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BE1FA74107AF4C45004B6283;
+			remoteInfo = "Static Library";
+		};
+		CF349ACD24D168E10006F5C7 /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF349AC324D168E10006F5C7 /* SDL_image.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BE1FA74507AF4C45004B6283;
+			remoteInfo = "Create DMG";
+		};
+		CF9480C924CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BECDF66C0761BA81005FE872;
+			remoteInfo = Framework;
+		};
+		CF9480CB24CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7D88B5423E2437C00DCD162;
+			remoteInfo = "Framework-iOS";
+		};
+		CF9480CD24CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7D88D1523E24BED00DCD162;
+			remoteInfo = "Framework-tvOS";
+		};
+		CF9480CF24CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BECDF6B30761BA81005FE872;
+			remoteInfo = "Static Library";
+		};
+		CF9480D124CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A7D88E5423E24D3B00DCD162;
+			remoteInfo = "Static Library-iOS";
+		};
+		CF9480D324CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A769B23D23E259AE00872273;
+			remoteInfo = "Static Library-tvOS";
+		};
+		CF9480D524CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = DB31407717554B71006C0E22;
+			remoteInfo = "Shared Library";
+		};
+		CF9480D724CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A75FCEB323E25AB700529352;
+			remoteInfo = "Shared Library-iOS";
+		};
+		CF9480D924CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A75FD06C23E25AC700529352;
+			remoteInfo = "Shared Library-tvOS";
+		};
+		CF9480DB24CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = BECDF6BE0761BA81005FE872;
+			remoteInfo = "Standard DMG";
+		};
+		CF9480DD24CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A75FDB8C23E4C74400529352;
+			remoteInfo = hidapi;
+		};
+		CF9480DF24CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A75FDB4923E399AC00529352;
+			remoteInfo = "hidapi-iOS";
+		};
+		CF9480E124CD700C009AC9CA /* PBXContainerItemProxy */ = {
+			isa = PBXContainerItemProxy;
+			containerPortal = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+			proxyType = 2;
+			remoteGlobalIDString = A75FDB6E23E3A2C900529352;
+			remoteInfo = "hidapi-tvOS";
+		};
+/* End PBXContainerItemProxy section */
+
 /* Begin PBXCopyFilesBuildPhase section */
-		CF9480AD24CD7003009AC9CA /* CopyFiles */ = {
+		CF7B644B24D160A500F6C48E /* Embed Frameworks */ = {
 			isa = PBXCopyFilesBuildPhase;
 			buildActionMask = 2147483647;
-			dstPath = /usr/share/man/man1/;
-			dstSubfolderSpec = 0;
+			dstPath = "";
+			dstSubfolderSpec = 10;
 			files = (
+				CF7B644D24D160A600F6C48E /* SDL2.framework in Embed Frameworks */,
+				CF349AD324D16D130006F5C7 /* SDL2_image.framework in Embed Frameworks */,
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		CF9480AF24CD7003009AC9CA /* SourQuest */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = SourQuest; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF186B7424CE639900AB5D06 /* SQTileMap.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQTileMap.h; sourceTree = "<group>"; };
+		CF186B7524CE639900AB5D06 /* SQTileMap.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SQTileMap.c; sourceTree = "<group>"; };
+		CF186B7A24CE6A6900AB5D06 /* SQTile.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQTile.h; sourceTree = "<group>"; };
+		CF186B7B24CE6A6900AB5D06 /* SQTile.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SQTile.c; sourceTree = "<group>"; };
+		CF186B7D24CE774100AB5D06 /* SQLevel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLevel.h; sourceTree = "<group>"; };
+		CF186B7E24CE774100AB5D06 /* SQLevel.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SQLevel.c; sourceTree = "<group>"; };
+		CF349AC324D168E10006F5C7 /* SDL_image.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL_image.xcodeproj; path = "../../Downloads/SDL2_image-2.0.5/Xcode/SDL_image.xcodeproj"; sourceTree = "<group>"; };
+		CF349AD724D16E9E0006F5C7 /* CakeFloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CakeFloor.png; path = "../../../../Downloads/Pixel Art/Tilemaps/CakeFloor.png"; sourceTree = "<group>"; };
+		CF7B642F24D15FE800F6C48E /* Sour Quest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sour Quest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
+		CF7B643C24D15FED00F6C48E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		CF7B643F24D15FED00F6C48E /* Sour_Quest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sour_Quest.entitlements; sourceTree = "<group>"; };
+		CF8AA37B24D5D009004598D9 /* cJSON.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cJSON.h; sourceTree = "<group>"; };
+		CF8AA37C24D5D009004598D9 /* cJSON.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
+		CF8AA37E24D5D09B004598D9 /* cJSON_Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cJSON_Utils.h; sourceTree = "<group>"; };
+		CF8AA37F24D5D09B004598D9 /* cJSON_Utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cJSON_Utils.c; sourceTree = "<group>"; };
+		CF8AA38324D5F5FC004598D9 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
+		CF8AA38424D5F5FC004598D9 /* Utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Utils.c; sourceTree = "<group>"; };
+		CF8AA39624D601D8004598D9 /* Level0.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Level0.json; sourceTree = "<group>"; };
 		CF9480B224CD7003009AC9CA /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
+		CF9480B924CD700C009AC9CA /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "../../Downloads/SDL2-2.0.12/Xcode/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		CF9480AC24CD7003009AC9CA /* Frameworks */ = {
+		CF7B642C24D15FE800F6C48E /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				CF7B644C24D160A600F6C48E /* SDL2.framework in Frameworks */,
+				CF349AD224D16D130006F5C7 /* SDL2_image.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF349AC424D168E10006F5C7 /* Products */ = {
+			isa = PBXGroup;
+			children = (
+				CF349ACA24D168E10006F5C7 /* SDL2_image.framework */,
+				CF349ACC24D168E10006F5C7 /* libSDL2_image.a */,
+				CF349ACE24D168E10006F5C7 /* Create DMG */,
+			);
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF349AD624D16E890006F5C7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				CF349AD724D16E9E0006F5C7 /* CakeFloor.png */,
+				CF8AA39624D601D8004598D9 /* Level0.json */,
+			);
+			path = Resources;
+			sourceTree = "<group>";
+		};
+		CF7B643024D15FE800F6C48E /* Sour Quest */ = {
+			isa = PBXGroup;
+			children = (
+				CF8AA36A24D5CF45004598D9 /* cJSON */,
+				CF349AD624D16E890006F5C7 /* Resources */,
+				CF9480B224CD7003009AC9CA /* main.c */,
+				CF8AA38324D5F5FC004598D9 /* Utils.h */,
+				CF8AA38424D5F5FC004598D9 /* Utils.c */,
+				CF186B7D24CE774100AB5D06 /* SQLevel.h */,
+				CF186B7E24CE774100AB5D06 /* SQLevel.c */,
+				CF186B7A24CE6A6900AB5D06 /* SQTile.h */,
+				CF186B7B24CE6A6900AB5D06 /* SQTile.c */,
+				CF186B7424CE639900AB5D06 /* SQTileMap.h */,
+				CF186B7524CE639900AB5D06 /* SQTileMap.c */,
+				CF7B643C24D15FED00F6C48E /* Info.plist */,
+				CF7B643F24D15FED00F6C48E /* Sour_Quest.entitlements */,
+			);
+			path = "Sour Quest";
+			sourceTree = "<group>";
+		};
+		CF8AA36A24D5CF45004598D9 /* cJSON */ = {
+			isa = PBXGroup;
+			children = (
+				CF8AA37B24D5D009004598D9 /* cJSON.h */,
+				CF8AA37C24D5D009004598D9 /* cJSON.c */,
+				CF8AA37E24D5D09B004598D9 /* cJSON_Utils.h */,
+				CF8AA37F24D5D09B004598D9 /* cJSON_Utils.c */,
+			);
+			path = cJSON;
+			sourceTree = "<group>";
+		};
 		CF9480A624CD7003009AC9CA = {
 			isa = PBXGroup;
 			children = (
-				CF9480B124CD7003009AC9CA /* SourQuest */,
+				CF349AC324D168E10006F5C7 /* SDL_image.xcodeproj */,
+				CF9480B924CD700C009AC9CA /* SDL.xcodeproj */,
+				CF7B643024D15FE800F6C48E /* Sour Quest */,
 				CF9480B024CD7003009AC9CA /* Products */,
+				CF9480E324CD702D009AC9CA /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
 		CF9480B024CD7003009AC9CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CF9480AF24CD7003009AC9CA /* SourQuest */,
+				CF7B642F24D15FE800F6C48E /* Sour Quest.app */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		CF9480B124CD7003009AC9CA /* SourQuest */ = {
+		CF9480BA24CD700C009AC9CA /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				CF9480B224CD7003009AC9CA /* main.c */,
+				CF9480CA24CD700C009AC9CA /* SDL2.framework */,
+				CF9480CC24CD700C009AC9CA /* SDL2.framework */,
+				CF9480CE24CD700C009AC9CA /* SDL2.framework */,
+				CF9480D024CD700C009AC9CA /* libSDL2.a */,
+				CF9480D224CD700C009AC9CA /* libSDL2.a */,
+				CF9480D424CD700C009AC9CA /* libSDL2.a */,
+				CF9480D624CD700C009AC9CA /* libSDL2.dylib */,
+				CF9480D824CD700C009AC9CA /* libSDL2.dylib */,
+				CF9480DA24CD700C009AC9CA /* libSDL2.dylib */,
+				CF9480DC24CD700C009AC9CA /* SDL2 */,
+				CF9480DE24CD700C009AC9CA /* hidapi.framework */,
+				CF9480E024CD700C009AC9CA /* hidapi.framework */,
+				CF9480E224CD700C009AC9CA /* hidapi.framework */,
 			);
-			path = SourQuest;
+			name = Products;
+			sourceTree = "<group>";
+		};
+		CF9480E324CD702D009AC9CA /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		CF9480AE24CD7003009AC9CA /* SourQuest */ = {
+		CF7B642E24D15FE800F6C48E /* Sour Quest */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = CF9480B624CD7003009AC9CA /* Build configuration list for PBXNativeTarget "SourQuest" */;
+			buildConfigurationList = CF7B644024D15FED00F6C48E /* Build configuration list for PBXNativeTarget "Sour Quest" */;
 			buildPhases = (
-				CF9480AB24CD7003009AC9CA /* Sources */,
-				CF9480AC24CD7003009AC9CA /* Frameworks */,
-				CF9480AD24CD7003009AC9CA /* CopyFiles */,
+				CF7B642B24D15FE800F6C48E /* Sources */,
+				CF7B642C24D15FE800F6C48E /* Frameworks */,
+				CF7B642D24D15FE800F6C48E /* Resources */,
+				CF7B644B24D160A500F6C48E /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
 			dependencies = (
 			);
-			name = SourQuest;
-			productName = SourQuest;
-			productReference = CF9480AF24CD7003009AC9CA /* SourQuest */;
-			productType = "com.apple.product-type.tool";
+			name = "Sour Quest";
+			productName = "Sour Quest";
+			productReference = CF7B642F24D15FE800F6C48E /* Sour Quest.app */;
+			productType = "com.apple.product-type.application";
 		};
 /* End PBXNativeTarget section */
 
@@ -91,7 +314,7 @@
 				LastUpgradeCheck = 1160;
 				ORGANIZATIONNAME = "Sirius Game Labs";
 				TargetAttributes = {
-					CF9480AE24CD7003009AC9CA = {
+					CF7B642E24D15FE800F6C48E = {
 						CreatedOnToolsVersion = 11.6;
 					};
 				};
@@ -107,25 +330,204 @@
 			mainGroup = CF9480A624CD7003009AC9CA;
 			productRefGroup = CF9480B024CD7003009AC9CA /* Products */;
 			projectDirPath = "";
+			projectReferences = (
+				{
+					ProductGroup = CF9480BA24CD700C009AC9CA /* Products */;
+					ProjectRef = CF9480B924CD700C009AC9CA /* SDL.xcodeproj */;
+				},
+				{
+					ProductGroup = CF349AC424D168E10006F5C7 /* Products */;
+					ProjectRef = CF349AC324D168E10006F5C7 /* SDL_image.xcodeproj */;
+				},
+			);
 			projectRoot = "";
 			targets = (
-				CF9480AE24CD7003009AC9CA /* SourQuest */,
+				CF7B642E24D15FE800F6C48E /* Sour Quest */,
 			);
 		};
 /* End PBXProject section */
 
+/* Begin PBXReferenceProxy section */
+		CF349ACA24D168E10006F5C7 /* SDL2_image.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDL2_image.framework;
+			remoteRef = CF349AC924D168E10006F5C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF349ACC24D168E10006F5C7 /* libSDL2_image.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDL2_image.a;
+			remoteRef = CF349ACB24D168E10006F5C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF349ACE24D168E10006F5C7 /* Create DMG */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = "Create DMG";
+			remoteRef = CF349ACD24D168E10006F5C7 /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480CA24CD700C009AC9CA /* SDL2.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDL2.framework;
+			remoteRef = CF9480C924CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480CC24CD700C009AC9CA /* SDL2.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDL2.framework;
+			remoteRef = CF9480CB24CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480CE24CD700C009AC9CA /* SDL2.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = SDL2.framework;
+			remoteRef = CF9480CD24CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480D024CD700C009AC9CA /* libSDL2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDL2.a;
+			remoteRef = CF9480CF24CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480D224CD700C009AC9CA /* libSDL2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDL2.a;
+			remoteRef = CF9480D124CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480D424CD700C009AC9CA /* libSDL2.a */ = {
+			isa = PBXReferenceProxy;
+			fileType = archive.ar;
+			path = libSDL2.a;
+			remoteRef = CF9480D324CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480D624CD700C009AC9CA /* libSDL2.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libSDL2.dylib;
+			remoteRef = CF9480D524CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480D824CD700C009AC9CA /* libSDL2.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libSDL2.dylib;
+			remoteRef = CF9480D724CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480DA24CD700C009AC9CA /* libSDL2.dylib */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.dylib";
+			path = libSDL2.dylib;
+			remoteRef = CF9480D924CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480DC24CD700C009AC9CA /* SDL2 */ = {
+			isa = PBXReferenceProxy;
+			fileType = "compiled.mach-o.executable";
+			path = SDL2;
+			remoteRef = CF9480DB24CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480DE24CD700C009AC9CA /* hidapi.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = hidapi.framework;
+			remoteRef = CF9480DD24CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480E024CD700C009AC9CA /* hidapi.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = hidapi.framework;
+			remoteRef = CF9480DF24CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+		CF9480E224CD700C009AC9CA /* hidapi.framework */ = {
+			isa = PBXReferenceProxy;
+			fileType = wrapper.framework;
+			path = hidapi.framework;
+			remoteRef = CF9480E124CD700C009AC9CA /* PBXContainerItemProxy */;
+			sourceTree = BUILT_PRODUCTS_DIR;
+		};
+/* End PBXReferenceProxy section */
+
+/* Begin PBXResourcesBuildPhase section */
+		CF7B642D24D15FE800F6C48E /* Resources */ = {
+			isa = PBXResourcesBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+				CF349AD824D16E9E0006F5C7 /* CakeFloor.png in Resources */,
+				CF8AA39724D601D8004598D9 /* Level0.json in Resources */,
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXResourcesBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
-		CF9480AB24CD7003009AC9CA /* Sources */ = {
+		CF7B642B24D15FE800F6C48E /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				CF9480B324CD7003009AC9CA /* main.c in Sources */,
+				CF7B644624D1603400F6C48E /* SQTileMap.c in Sources */,
+				CF7B644424D1603400F6C48E /* SQLevel.c in Sources */,
+				CF7B644524D1603400F6C48E /* SQTile.c in Sources */,
+				CF8AA38524D5F5FC004598D9 /* Utils.c in Sources */,
+				CF8AA37D24D5D009004598D9 /* cJSON.c in Sources */,
+				CF7B644324D1603400F6C48E /* main.c in Sources */,
+				CF8AA38024D5D09B004598D9 /* cJSON_Utils.c in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin XCBuildConfiguration section */
+		CF7B644124D15FED00F6C48E /* Debug */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Sour Quest/Sour_Quest.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R3UL8386AP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Sour Quest/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.siriusgl.Sour-Quest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Debug;
+		};
+		CF7B644224D15FED00F6C48E /* Release */ = {
+			isa = XCBuildConfiguration;
+			buildSettings = {
+				CODE_SIGN_ENTITLEMENTS = "Sour Quest/Sour_Quest.entitlements";
+				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
+				DEVELOPMENT_TEAM = R3UL8386AP;
+				ENABLE_HARDENED_RUNTIME = YES;
+				INFOPLIST_FILE = "Sour Quest/Info.plist";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/../Frameworks",
+				);
+				PRODUCT_BUNDLE_IDENTIFIER = "com.siriusgl.Sour-Quest";
+				PRODUCT_NAME = "$(TARGET_NAME)";
+			};
+			name = Release;
+		};
 		CF9480B424CD7003009AC9CA /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
@@ -235,43 +637,23 @@
 			};
 			name = Release;
 		};
-		CF9480B724CD7003009AC9CA /* Debug */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R3UL8386AP;
-				ENABLE_HARDENED_RUNTIME = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Debug;
-		};
-		CF9480B824CD7003009AC9CA /* Release */ = {
-			isa = XCBuildConfiguration;
-			buildSettings = {
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = R3UL8386AP;
-				ENABLE_HARDENED_RUNTIME = YES;
-				PRODUCT_NAME = "$(TARGET_NAME)";
-			};
-			name = Release;
-		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
+		CF7B644024D15FED00F6C48E /* Build configuration list for PBXNativeTarget "Sour Quest" */ = {
+			isa = XCConfigurationList;
+			buildConfigurations = (
+				CF7B644124D15FED00F6C48E /* Debug */,
+				CF7B644224D15FED00F6C48E /* Release */,
+			);
+			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
+		};
 		CF9480AA24CD7003009AC9CA /* Build configuration list for PBXProject "SourQuest" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				CF9480B424CD7003009AC9CA /* Debug */,
 				CF9480B524CD7003009AC9CA /* Release */,
-			);
-			defaultConfigurationIsVisible = 0;
-			defaultConfigurationName = Release;
-		};
-		CF9480B624CD7003009AC9CA /* Build configuration list for PBXNativeTarget "SourQuest" */ = {
-			isa = XCConfigurationList;
-			buildConfigurations = (
-				CF9480B724CD7003009AC9CA /* Debug */,
-				CF9480B824CD7003009AC9CA /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
