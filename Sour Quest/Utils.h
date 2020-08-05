@@ -19,6 +19,6 @@ char* fileToString(const char*);
 
 char* pathRelativeToResources(const char*);
 
-void sqFree(void**);
+#define sqFree(pointer) free(pointer);pointer=NULL;
 
 #endif /* Utils_h */

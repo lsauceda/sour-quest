@@ -48,8 +48,3 @@ char* pathRelativeToResources(const char* relative) {
     
     return ret;
 }
-
-void sqFree(void** pointer) {
-    free(*pointer);
-    *pointer = NULL;
-}

@@ -56,7 +56,7 @@ int main(int argc, const char * argv[]) {
         SDL_Log("Could not load level\n");
         goto exitError4;
     }
-    sqFree(&path);
+    sqFree(path);
     
     // MARK: Main loop
     int shouldClose = 0;
@@ -71,8 +71,8 @@ int main(int argc, const char * argv[]) {
         
         SQLevel_Render(level);
     }
-    sqFree(&levelTilemap.tiles);
-    sqFree(&levelTilesets);
+    sqFree(levelTilemap.tiles);
+    sqFree(levelTilesets);
     
     IMG_Quit();
     SDL_DestroyRenderer(renderer);
