@@ -15,10 +15,10 @@
 #include <assert.h>
 #include <SDL2/SDL.h>
 
-char* stringFromFileNamed(const char*);
+char* fileToString(const char*);
 
 char* pathRelativeToResources(const char*);
 
-void sqFree(void*);
+void sqFree(void**);
 
 #endif /* Utils_h */

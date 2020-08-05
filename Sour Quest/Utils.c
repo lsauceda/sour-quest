@@ -8,7 +8,7 @@
 
 #include "Utils.h"
 
-char* stringFromFileNamed(const char* fileName) {
+char* fileToString(const char* fileName) {
     assert(fileName != NULL);
     
     FILE *file = fopen(fileName, "r");
@@ -34,21 +34,22 @@ char* pathRelativeToResources(const char* relative) {
     
     static char *absolute = NULL;
     if (!absolute) {
+        // FIXME: This should get deallocated at some point
         absolute = SDL_GetBasePath();
         absolute = absolute ? absolute : "./";
     }
     
     long absoluteLength = strlen(absolute);
     long relativeLength = strlen(relative);
-    char* ret = malloc((absoluteLength + relativeLength) * sizeof(char));
+    char* ret = malloc((absoluteLength + relativeLength + 1) * sizeof(char));
     if (!ret) { return NULL; }
-    strcat(ret, absolute);
+    strcpy(ret, absolute);
     strcat(ret, relative);
     
     return ret;
 }
 
-void sqFree(void* pointer) {
-    free(pointer);
-    pointer = NULL;
+void sqFree(void** pointer) {
+    free(*pointer);
+    *pointer = NULL;
 }

@@ -13,11 +13,11 @@ struct SQLevel SQLevelInit(SDL_Renderer* renderer, struct SQTileMap tileMap) {
 }
 
 int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, SQTileset** tilesets, SDL_Renderer* renderer, const char* fileName) {
-    char* text = stringFromFileNamed(fileName);
+    char* text = fileToString(fileName);
     
     // Parse top level JSON object
     cJSON *levelJSON = cJSON_Parse(text);
-    sqFree(text);
+    sqFree(&text);
     if (!levelJSON) { goto returnWithError1; }
     
     // Get values from JSON
@@ -97,7 +97,7 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, SQTil
     return 0;
 
 returnWithError2:
-    sqFree(deserializedTilesets);
+    sqFree(&deserializedTilesets);
 returnWithError1:
     cJSON_Delete(levelJSON);
     return 1;
