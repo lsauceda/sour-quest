@@ -12,7 +12,7 @@ struct SQLevel SQLevelInit(SDL_Renderer* renderer, struct SQTileMap tileMap) {
     return (struct SQLevel) {renderer, tileMap};
 }
 
-int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, SQTileset** tilesets, SDL_Renderer* renderer, const char* fileName) {
+int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struct SQTileset** tilesets, SDL_Renderer* renderer, const char* fileName) {
     char* text = fileToString(fileName);
     
     // Parse top level JSON object
@@ -35,10 +35,10 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, SQTil
     
     // Deserialize tilesets
     int tilesetsCount = cJSON_GetArraySize(tilesetsJSON);
-    SQTileset* deserializedTilesets = malloc((tilesetsCount + 1) * sizeof(SQTileset));
+    struct SQTileset *deserializedTilesets = malloc((tilesetsCount + 1) * sizeof(struct SQTileset));
     if (!deserializedTilesets) { goto returnWithError1; }
     // First tileset is always empty tileset
-    deserializedTilesets[0] = (SQTileset) &SQ_TILE_EMPTY;
+    deserializedTilesets[0] = SQ_TILESET_EMPTY;
     int i = 1;
     cJSON *tilesetJSON = NULL;
     cJSON_ArrayForEach(tilesetJSON, tilesetsJSON) {
@@ -47,14 +47,14 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, SQTil
         SDL_Texture *texture = IMG_LoadTexture(renderer, textureFile);
         if (!texture) { goto setEmptyTileset; }
         
-        SQTileset tileset = SQTileset_FromTexture(texture);
-        if (!tileset) { goto setEmptyTileset; }
+        struct SQTileset tileset;
+        if (SQTilesetInitFromTexture(&tileset, texture)) { goto setEmptyTileset; }
         deserializedTilesets[i] = tileset;
         i++;
         continue;
         
     setEmptyTileset:
-        deserializedTilesets[i] = (SQTileset) &SQ_TILE_EMPTY;
+        deserializedTilesets[i] = SQ_TILESET_EMPTY;
         i++;
     }
     
@@ -76,7 +76,7 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, SQTil
         }
         int tilesetIndex = (int)cJSON_GetNumberValue(tilesetIndexJSON);
         int tileIndex = (int)cJSON_GetNumberValue(tileIndexJSON);
-        deserializedMap.tiles[i] = deserializedTilesets[tilesetIndex][tileIndex];
+        deserializedMap.tiles[i] = deserializedTilesets[tilesetIndex].tiles[tileIndex];
         i++;
         continue;
         

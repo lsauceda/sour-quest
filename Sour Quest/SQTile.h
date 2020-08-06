@@ -16,6 +16,7 @@
 extern const int SQ_TILE_WIDTH;
 extern const int SQ_TILE_HEIGHT;
 extern const struct SQTile SQ_TILE_EMPTY;
+extern const struct SQTileset SQ_TILESET_EMPTY;
 
 /// Struct representing a single tile in a grid
 struct SQTile {
@@ -27,8 +28,11 @@ struct SQTile {
 
 struct SQTile SQTileInit(SDL_Texture*, SDL_Rect);
 
-typedef struct SQTile* SQTileset;
+struct SQTileset {
+    int length;
+    struct SQTile *tiles;
+};
 
-SQTileset SQTileset_FromTexture(SDL_Texture*);
+int SQTilesetInitFromTexture(struct SQTileset*, SDL_Texture*);
 
 #endif /* SQTile_h */

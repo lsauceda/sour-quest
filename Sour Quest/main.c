@@ -46,7 +46,7 @@ int main(int argc, const char * argv[]) {
     }
     
     // MARK: Load level
-    SQTileset* levelTilesets = NULL;
+    struct SQTileset *levelTilesets = NULL;
     struct SQTileMap levelTilemap;
     struct SQLevel level;
     

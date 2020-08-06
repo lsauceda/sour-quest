@@ -21,4 +21,6 @@ char* pathRelativeToResources(const char*);
 
 #define sqFree(pointer) free(pointer);pointer=NULL;
 
+#define SQArray(type) struct { int lenght; type *items; }
+
 #endif /* Utils_h */
