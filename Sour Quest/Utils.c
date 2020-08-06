@@ -41,10 +41,10 @@ char* pathRelativeToResources(const char* relative) {
     
     long absoluteLength = strlen(absolute);
     long relativeLength = strlen(relative);
+    long stringLength = absoluteLength + relativeLength + 1;
     char* ret = malloc((absoluteLength + relativeLength + 1) * sizeof(char));
     if (!ret) { return NULL; }
-    strcpy(ret, absolute);
-    strcat(ret, relative);
+    snprintf(ret, stringLength, "%s%s", absolute, relative);
     
     return ret;
 }
