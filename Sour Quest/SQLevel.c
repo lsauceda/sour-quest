@@ -62,6 +62,7 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struc
     struct SQTileMap deserializedMap;
     deserializedMap.width = (int)cJSON_GetNumberValue(tilemapWidthJSON);
     deserializedMap.height = (int)cJSON_GetNumberValue(tilemapHeightJSON);
+    if (deserializedMap.width < 0 || deserializedMap.height < 0) { goto returnWithError2; }
     int tileArraySize = cJSON_GetArraySize(tilesJSON);
     deserializedMap.tiles = malloc(tileArraySize * sizeof(struct SQTile));
     if (!deserializedMap.tiles) { goto returnWithError2; }
@@ -76,6 +77,7 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struc
         }
         int tilesetIndex = (int)cJSON_GetNumberValue(tilesetIndexJSON);
         int tileIndex = (int)cJSON_GetNumberValue(tileIndexJSON);
+        if (tilesetIndex < 0 || tileIndex < 0) { goto setEmptyTile; }
         deserializedMap.tiles[i] = deserializedTilesets[tilesetIndex].tiles[tileIndex];
         i++;
         continue;
