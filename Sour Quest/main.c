@@ -46,7 +46,7 @@ int main(int argc, const char * argv[]) {
     }
     
     // MARK: Load level
-    struct SQTileset *levelTilesets = NULL;
+    struct SQArray levelTilesets;
     struct SQTileMap levelTilemap;
     struct SQLevel level;
     
@@ -72,7 +72,7 @@ int main(int argc, const char * argv[]) {
         SQLevel_Render(level);
     }
     sqFree(levelTilemap.tiles);
-    sqFree(levelTilesets);
+    sqFree(levelTilesets.items);
     
     IMG_Quit();
     SDL_DestroyRenderer(renderer);

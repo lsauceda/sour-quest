@@ -10,6 +10,8 @@
 		CF349AD224D16D130006F5C7 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF349ACA24D168E10006F5C7 /* SDL2_image.framework */; };
 		CF349AD324D16D130006F5C7 /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF349ACA24D168E10006F5C7 /* SDL2_image.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF349AD824D16E9E0006F5C7 /* CakeFloor.png in Resources */ = {isa = PBXBuildFile; fileRef = CF349AD724D16E9E0006F5C7 /* CakeFloor.png */; };
+		CF4EE37224DF3FEB00569B09 /* SQArray.c in Sources */ = {isa = PBXBuildFile; fileRef = CF4EE37124DF3FEB00569B09 /* SQArray.c */; };
+		CF4EE37524DF550D00569B09 /* Functions.c in Sources */ = {isa = PBXBuildFile; fileRef = CF4EE37424DF550D00569B09 /* Functions.c */; };
 		CF7B644324D1603400F6C48E /* main.c in Sources */ = {isa = PBXBuildFile; fileRef = CF9480B224CD7003009AC9CA /* main.c */; };
 		CF7B644424D1603400F6C48E /* SQLevel.c in Sources */ = {isa = PBXBuildFile; fileRef = CF186B7E24CE774100AB5D06 /* SQLevel.c */; };
 		CF7B644524D1603400F6C48E /* SQTile.c in Sources */ = {isa = PBXBuildFile; fileRef = CF186B7B24CE6A6900AB5D06 /* SQTile.c */; };
@@ -18,7 +20,6 @@
 		CF7B644D24D160A600F6C48E /* SDL2.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF9480CA24CD700C009AC9CA /* SDL2.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF8AA37D24D5D009004598D9 /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = CF8AA37C24D5D009004598D9 /* cJSON.c */; };
 		CF8AA38024D5D09B004598D9 /* cJSON_Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = CF8AA37F24D5D09B004598D9 /* cJSON_Utils.c */; };
-		CF8AA38524D5F5FC004598D9 /* Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = CF8AA38424D5F5FC004598D9 /* Utils.c */; };
 		CF8AA39724D601D8004598D9 /* Level0.json in Resources */ = {isa = PBXBuildFile; fileRef = CF8AA39624D601D8004598D9 /* Level0.json */; };
 /* End PBXBuildFile section */
 
@@ -161,6 +162,11 @@
 		CF186B7E24CE774100AB5D06 /* SQLevel.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SQLevel.c; sourceTree = "<group>"; };
 		CF349AC324D168E10006F5C7 /* SDL_image.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL_image.xcodeproj; path = "../../Downloads/SDL2_image-2.0.5/Xcode/SDL_image.xcodeproj"; sourceTree = "<group>"; };
 		CF349AD724D16E9E0006F5C7 /* CakeFloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CakeFloor.png; path = "../../../../Downloads/Pixel Art/Tilemaps/CakeFloor.png"; sourceTree = "<group>"; };
+		CF4EE37024DF3FEB00569B09 /* SQArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQArray.h; sourceTree = "<group>"; };
+		CF4EE37124DF3FEB00569B09 /* SQArray.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SQArray.c; sourceTree = "<group>"; };
+		CF4EE37324DF550D00569B09 /* Functions.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Functions.h; sourceTree = "<group>"; };
+		CF4EE37424DF550D00569B09 /* Functions.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Functions.c; sourceTree = "<group>"; };
+		CF4EE37824DF569400569B09 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
 		CF7B642F24D15FE800F6C48E /* Sour Quest.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "Sour Quest.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		CF7B643C24D15FED00F6C48E /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		CF7B643F24D15FED00F6C48E /* Sour_Quest.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Sour_Quest.entitlements; sourceTree = "<group>"; };
@@ -168,8 +174,6 @@
 		CF8AA37C24D5D009004598D9 /* cJSON.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cJSON.c; sourceTree = "<group>"; };
 		CF8AA37E24D5D09B004598D9 /* cJSON_Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = cJSON_Utils.h; sourceTree = "<group>"; };
 		CF8AA37F24D5D09B004598D9 /* cJSON_Utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = cJSON_Utils.c; sourceTree = "<group>"; };
-		CF8AA38324D5F5FC004598D9 /* Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Utils.h; sourceTree = "<group>"; };
-		CF8AA38424D5F5FC004598D9 /* Utils.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = Utils.c; sourceTree = "<group>"; };
 		CF8AA39624D601D8004598D9 /* Level0.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Level0.json; sourceTree = "<group>"; };
 		CF9480B224CD7003009AC9CA /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		CF9480B924CD700C009AC9CA /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "../../Downloads/SDL2-2.0.12/Xcode/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
@@ -207,14 +211,25 @@
 			path = Resources;
 			sourceTree = "<group>";
 		};
+		CF4EE35F24DF3FBC00569B09 /* Utils */ = {
+			isa = PBXGroup;
+			children = (
+				CF4EE37824DF569400569B09 /* Utils.h */,
+				CF4EE37324DF550D00569B09 /* Functions.h */,
+				CF4EE37424DF550D00569B09 /* Functions.c */,
+				CF4EE37024DF3FEB00569B09 /* SQArray.h */,
+				CF4EE37124DF3FEB00569B09 /* SQArray.c */,
+			);
+			path = Utils;
+			sourceTree = "<group>";
+		};
 		CF7B643024D15FE800F6C48E /* Sour Quest */ = {
 			isa = PBXGroup;
 			children = (
-				CF8AA36A24D5CF45004598D9 /* cJSON */,
 				CF349AD624D16E890006F5C7 /* Resources */,
+				CF8AA36A24D5CF45004598D9 /* cJSON */,
+				CF4EE35F24DF3FBC00569B09 /* Utils */,
 				CF9480B224CD7003009AC9CA /* main.c */,
-				CF8AA38324D5F5FC004598D9 /* Utils.h */,
-				CF8AA38424D5F5FC004598D9 /* Utils.c */,
 				CF186B7D24CE774100AB5D06 /* SQLevel.h */,
 				CF186B7E24CE774100AB5D06 /* SQLevel.c */,
 				CF186B7A24CE6A6900AB5D06 /* SQTile.h */,
@@ -482,8 +497,9 @@
 				CF7B644624D1603400F6C48E /* SQTileMap.c in Sources */,
 				CF7B644424D1603400F6C48E /* SQLevel.c in Sources */,
 				CF7B644524D1603400F6C48E /* SQTile.c in Sources */,
-				CF8AA38524D5F5FC004598D9 /* Utils.c in Sources */,
+				CF4EE37524DF550D00569B09 /* Functions.c in Sources */,
 				CF8AA37D24D5D009004598D9 /* cJSON.c in Sources */,
+				CF4EE37224DF3FEB00569B09 /* SQArray.c in Sources */,
 				CF7B644324D1603400F6C48E /* main.c in Sources */,
 				CF8AA38024D5D09B004598D9 /* cJSON_Utils.c in Sources */,
 			);

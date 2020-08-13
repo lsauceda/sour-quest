@@ -12,7 +12,7 @@ struct SQLevel SQLevelInit(SDL_Renderer* renderer, struct SQTileMap tileMap) {
     return (struct SQLevel) {renderer, tileMap};
 }
 
-int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struct SQTileset** tilesets, SDL_Renderer* renderer, const char* fileName) {
+int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struct SQArray *tilesets, SDL_Renderer* renderer, const char* fileName) {
     char* text = fileToString(fileName);
     
     // Parse top level JSON object
@@ -35,11 +35,14 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struc
     
     // Deserialize tilesets
     int tilesetsCount = cJSON_GetArraySize(tilesetsJSON);
-    struct SQTileset *deserializedTilesets = malloc((tilesetsCount + 1) * sizeof(struct SQTileset));
-    if (!deserializedTilesets) { goto returnWithError1; }
+    struct SQArray deserializedTilesets;
+    if (SQArrayInit_EmptyWithCapacity(&deserializedTilesets, sizeof(SQTileset), tilesetsCount)) {
+        goto returnWithError1;
+    }
     // First tileset is always empty tileset
-    deserializedTilesets[0] = SQ_TILESET_EMPTY;
-    int i = 1;
+    if (SQArray_AppendData(&deserializedTilesets, 1, &SQ_TILESET_EMPTY)) {
+        goto returnWithError2;
+    }
     cJSON *tilesetJSON = NULL;
     cJSON_ArrayForEach(tilesetJSON, tilesetsJSON) {
         if (!cJSON_IsString(tilesetJSON)) { goto setEmptyTileset; }
@@ -47,15 +50,15 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struc
         SDL_Texture *texture = IMG_LoadTexture(renderer, textureFile);
         if (!texture) { goto setEmptyTileset; }
         
-        struct SQTileset tileset;
-        if (SQTilesetInitFromTexture(&tileset, texture)) { goto setEmptyTileset; }
-        deserializedTilesets[i] = tileset;
-        i++;
+        SQTileset tileset;
+        if (SQTilesetInit_FromTexture(&tileset, texture)) { goto setEmptyTileset; }
+        if (SQArray_AppendData(&deserializedTilesets, 1, &tileset)) {
+            goto setEmptyTileset;
+        }
+
         continue;
-        
     setEmptyTileset:
-        deserializedTilesets[i] = SQ_TILESET_EMPTY;
-        i++;
+        SQArray_AppendData(&deserializedTilesets, 1, &SQ_TILESET_EMPTY);
     }
     
     // Deserialize tilemap
@@ -66,7 +69,7 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struc
     int tileArraySize = cJSON_GetArraySize(tilesJSON);
     deserializedMap.tiles = malloc(tileArraySize * sizeof(struct SQTile));
     if (!deserializedMap.tiles) { goto returnWithError2; }
-    i = 0;
+    int i = 0;
     cJSON *tileJSON = NULL;
     cJSON_ArrayForEach(tileJSON, tilesJSON) {
         if (!cJSON_IsArray(tileJSON)) { goto setEmptyTile; }
@@ -78,10 +81,14 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struc
         int tilesetIndex = (int)cJSON_GetNumberValue(tilesetIndexJSON);
         int tileIndex = (int)cJSON_GetNumberValue(tileIndexJSON);
         if (tilesetIndex < 0 || tileIndex < 0) { goto setEmptyTile; }
-        deserializedMap.tiles[i] = deserializedTilesets[tilesetIndex].tiles[tileIndex];
+        if (tilesetIndex >= deserializedTilesets.length) { goto returnWithError2; }
+        SQTileset _tileset = ((SQTileset*)deserializedTilesets.items)[tilesetIndex];
+        if (tileIndex >= _tileset.length) { goto returnWithError2; }
+        struct SQTile _tile = ((struct SQTile*)_tileset.items)[tileIndex];
+        deserializedMap.tiles[i] = _tile;
         i++;
-        continue;
         
+        continue;
     setEmptyTile:
         deserializedMap.tiles[i] = SQ_TILE_EMPTY;
         i++;
@@ -99,7 +106,7 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struc
     return 0;
 
 returnWithError2:
-    sqFree(deserializedTilesets);
+    sqFree(deserializedTilesets.items);
 returnWithError1:
     cJSON_Delete(levelJSON);
     return 1;

@@ -1,12 +1,24 @@
 //
-//  Utils.c
+//  Functions.c
 //  Sour Quest
 //
-//  Created by Jorge on 8/1/20.
+//  Created by Jorge on 8/8/20.
 //  Copyright © 2020 Sirius Game Labs. All rights reserved.
 //
 
-#include "Utils.h"
+#include "Functions.h"
+
+uint nextPow2(uint n) {
+    n |= n >> 1;
+    n |= n >> 2;
+    n |= n >> 4;
+    n |= n >> 8;
+    n |= n >> 16;
+#if WORD_BIT == 64
+    n |= n >> 32;
+#endif
+    return n;
+}
 
 char* fileToString(const char* fileName) {
     assert(fileName != NULL);

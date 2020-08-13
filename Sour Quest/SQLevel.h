@@ -25,7 +25,7 @@ struct SQLevel {
 
 struct SQLevel SQLevelInit(SDL_Renderer*, struct SQTileMap);
 
-int SQLevel_ReadFromFile(struct SQLevel*, struct SQTileMap*, struct SQTileset**, SDL_Renderer*, const char* fileName);
+int SQLevel_ReadFromFile(struct SQLevel*, struct SQTileMap*, struct SQArray*, SDL_Renderer*, const char* fileName);
 
 int SQLevel_SetBackgroundColor(struct SQLevel*, SDL_Color);
 

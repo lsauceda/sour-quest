@@ -12,11 +12,12 @@
 #include <SDL2/SDL.h>
 #include <stdio.h>
 #include <stdlib.h>
+#include "Utils.h"
 
 extern const int SQ_TILE_WIDTH;
 extern const int SQ_TILE_HEIGHT;
 extern const struct SQTile SQ_TILE_EMPTY;
-extern const struct SQTileset SQ_TILESET_EMPTY;
+extern const struct SQArray SQ_TILESET_EMPTY;
 
 /// Struct representing a single tile in a grid
 struct SQTile {
@@ -28,11 +29,8 @@ struct SQTile {
 
 struct SQTile SQTileInit(SDL_Texture*, SDL_Rect);
 
-struct SQTileset {
-    int length;
-    struct SQTile *tiles;
-};
+typedef struct SQArray SQTileset;
 
-int SQTilesetInitFromTexture(struct SQTileset*, SDL_Texture*);
+int SQTilesetInit_FromTexture(SQTileset*, SDL_Texture*);
 
 #endif /* SQTile_h */
