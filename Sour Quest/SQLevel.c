@@ -122,7 +122,8 @@ int SQLevel_SetBackgroundColor(struct SQLevel* level, SDL_Color color) {
 }
 
 // TODO: Only render visible tiles
-void SQLevel_Render(struct SQLevel level) {
+void SQLevel_Render(struct SQLevel level, SDL_Texture *target) {
+    SDL_SetRenderTarget(level.renderer, target);
     SDL_RenderClear(level.renderer);
     int nTiles = level.tilemap.width * level.tilemap.height;
     for (int i = 0; i < nTiles; i++) {
@@ -132,8 +133,9 @@ void SQLevel_Render(struct SQLevel level) {
         int y = i / level.tilemap.width;
         int x = i % level.tilemap.width;
         // FIXME: render at original resolution and stretch to match screen
-        SDL_Rect destination = {x * SQ_TILE_WIDTH * 4, y * SQ_TILE_HEIGHT * 4, SQ_TILE_WIDTH * 4, SQ_TILE_HEIGHT * 4};
+        SDL_Rect destination = {x * SQ_TILE_WIDTH, y * SQ_TILE_HEIGHT, SQ_TILE_WIDTH, SQ_TILE_HEIGHT};
         SDL_RenderCopy(level.renderer, tile.texture, &tile.rect, &destination);
     }
     SDL_RenderPresent(level.renderer);
+    SDL_SetRenderTarget(level.renderer, NULL);
 }

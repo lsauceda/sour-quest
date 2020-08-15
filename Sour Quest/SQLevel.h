@@ -29,6 +29,6 @@ int SQLevel_ReadFromFile(struct SQLevel*, struct SQTileMap*, struct SQArray*, SD
 
 int SQLevel_SetBackgroundColor(struct SQLevel*, SDL_Color);
 
-void SQLevel_Render(struct SQLevel);
+void SQLevel_Render(struct SQLevel, SDL_Texture*);
 
 #endif /* SQLevel_h */
