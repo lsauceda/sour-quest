@@ -8,10 +8,11 @@
 
 #include "SQLevel.h"
 
-struct SQLevel SQLevelInit(SDL_Renderer* renderer, struct SQTileMap tileMap) {
-    return (struct SQLevel) {renderer, tileMap};
+struct SQLevel SQLevelInit(SDL_Renderer* renderer, struct SQTileMap tileMap, struct SQVector cameraPosition) {
+    return (struct SQLevel) {renderer, tileMap, cameraPosition};
 }
 
+// TODO: Allow camera position to be specifieds
 int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struct SQArray *tilesets, SDL_Renderer* renderer, const char* fileName) {
     char* text = fileToString(fileName);
     
@@ -94,7 +95,8 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struc
         i++;
     }
     
-    struct SQLevel deserializedLevel = SQLevelInit(renderer, deserializedMap);
+    // FIXME: Camera position is always zero (should be read from file)
+    struct SQLevel deserializedLevel = SQLevelInit(renderer, deserializedMap, SQ_VECTOR_ZERO);
     
     // Set return values
     *tilesets = deserializedTilesets;
@@ -129,11 +131,15 @@ void SQLevel_Render(struct SQLevel level, SDL_Texture *target) {
     for (int i = 0; i < nTiles; i++) {
         struct SQTile tile = level.tilemap.tiles[i];
         if (tile.texture == NULL) { continue; }
+
+        div_t coordinates = div(i, level.tilemap.width);
+        int x = coordinates.rem * SQ_TILE_WIDTH;
+        int y = coordinates.quot * SQ_TILE_HEIGHT;
+        struct SQVector tilePosition = SQVectorInit(x, y);
+        tilePosition = SQVector_Subtract(tilePosition, level.cameraPosition);
         
-        int y = i / level.tilemap.width;
-        int x = i % level.tilemap.width;
-        // FIXME: render at original resolution and stretch to match screen
-        SDL_Rect destination = {x * SQ_TILE_WIDTH, y * SQ_TILE_HEIGHT, SQ_TILE_WIDTH, SQ_TILE_HEIGHT};
+        // FIXME: Image is not getting stretched appropriately
+        SDL_Rect destination = {tilePosition.x, tilePosition.y, SQ_TILE_WIDTH, SQ_TILE_HEIGHT};
         SDL_RenderCopy(level.renderer, tile.texture, &tile.rect, &destination);
     }
     SDL_RenderPresent(level.renderer);

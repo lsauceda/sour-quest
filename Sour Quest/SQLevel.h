@@ -21,9 +21,10 @@
 struct SQLevel {
     SDL_Renderer *renderer;
     struct SQTileMap tilemap;
+    struct SQVector cameraPosition;
 };
 
-struct SQLevel SQLevelInit(SDL_Renderer*, struct SQTileMap);
+struct SQLevel SQLevelInit(SDL_Renderer*, struct SQTileMap, struct SQVector);
 
 int SQLevel_ReadFromFile(struct SQLevel*, struct SQTileMap*, struct SQArray*, SDL_Renderer*, const char* fileName);
 
