@@ -8,7 +8,7 @@
 
 #include "SQLevel.h"
 
-struct SQLevel SQLevelInit(SDL_Renderer* renderer, struct SQTileMap tileMap, struct SQVector cameraPosition) {
+struct SQLevel SQLevelInit(SDL_Renderer* renderer, struct SQTileMap tileMap, cpVect cameraPosition) {
     return (struct SQLevel) {renderer, tileMap, cameraPosition};
 }
 
@@ -96,7 +96,7 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struc
     }
     
     // FIXME: Camera position is always zero (should be read from file)
-    struct SQLevel deserializedLevel = SQLevelInit(renderer, deserializedMap, SQ_VECTOR_ZERO);
+    struct SQLevel deserializedLevel = SQLevelInit(renderer, deserializedMap, cpvzero);
     
     // Set return values
     *tilesets = deserializedTilesets;
@@ -135,8 +135,8 @@ void SQLevel_Render(struct SQLevel level, SDL_Texture *target) {
         div_t coordinates = div(i, level.tilemap.width);
         int x = coordinates.rem * SQ_TILE_WIDTH;
         int y = coordinates.quot * SQ_TILE_HEIGHT;
-        struct SQVector tilePosition = SQVectorInit(x, y);
-        tilePosition = SQVector_Subtract(tilePosition, level.cameraPosition);
+        cpVect tilePosition = cpv(x, y);
+        tilePosition = cpvsub(tilePosition, level.cameraPosition);
         
         SDL_Rect destination = {tilePosition.x, tilePosition.y, SQ_TILE_WIDTH, SQ_TILE_HEIGHT};
         SDL_RenderCopy(level.renderer, tile.texture, &tile.rect, &destination);

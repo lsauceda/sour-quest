@@ -11,6 +11,5 @@
 
 #include "Functions.h"
 #include "SQArray.h"
-#include "SQVector.h"
 
 #endif /* Utils_h */

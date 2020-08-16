@@ -11,6 +11,7 @@
 
 #include <SDL2/SDL.h>
 #include <SDL2_image/SDL_image.h>
+#include <Chipmunk/chipmunk.h>
 #include <stdio.h>
 #include <string.h>
 #include <stdlib.h>
@@ -21,10 +22,11 @@
 struct SQLevel {
     SDL_Renderer *renderer;
     struct SQTileMap tilemap;
-    struct SQVector cameraPosition;
+    cpVect cameraPosition;
+    
 };
 
-struct SQLevel SQLevelInit(SDL_Renderer*, struct SQTileMap, struct SQVector);
+struct SQLevel SQLevelInit(SDL_Renderer*, struct SQTileMap, cpVect);
 
 int SQLevel_ReadFromFile(struct SQLevel*, struct SQTileMap*, struct SQArray*, SDL_Renderer*, const char* fileName);
 
