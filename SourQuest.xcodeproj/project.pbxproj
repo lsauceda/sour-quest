@@ -21,6 +21,7 @@
 		CF8AA37D24D5D009004598D9 /* cJSON.c in Sources */ = {isa = PBXBuildFile; fileRef = CF8AA37C24D5D009004598D9 /* cJSON.c */; };
 		CF8AA38024D5D09B004598D9 /* cJSON_Utils.c in Sources */ = {isa = PBXBuildFile; fileRef = CF8AA37F24D5D09B004598D9 /* cJSON_Utils.c */; };
 		CF8AA39724D601D8004598D9 /* Level0.json in Resources */ = {isa = PBXBuildFile; fileRef = CF8AA39624D601D8004598D9 /* Level0.json */; };
+		CFD38BA324E8B48900A86ACD /* SQVector.c in Sources */ = {isa = PBXBuildFile; fileRef = CFD38BA224E8B48900A86ACD /* SQVector.c */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -177,6 +178,8 @@
 		CF8AA39624D601D8004598D9 /* Level0.json */ = {isa = PBXFileReference; lastKnownFileType = text.json; path = Level0.json; sourceTree = "<group>"; };
 		CF9480B224CD7003009AC9CA /* main.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = main.c; sourceTree = "<group>"; };
 		CF9480B924CD700C009AC9CA /* SDL.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL.xcodeproj; path = "../../Downloads/SDL2-2.0.12/Xcode/SDL/SDL.xcodeproj"; sourceTree = "<group>"; };
+		CFD38BA124E8B48900A86ACD /* SQVector.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQVector.h; sourceTree = "<group>"; };
+		CFD38BA224E8B48900A86ACD /* SQVector.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SQVector.c; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -219,6 +222,8 @@
 				CF4EE37424DF550D00569B09 /* Functions.c */,
 				CF4EE37024DF3FEB00569B09 /* SQArray.h */,
 				CF4EE37124DF3FEB00569B09 /* SQArray.c */,
+				CFD38BA124E8B48900A86ACD /* SQVector.h */,
+				CFD38BA224E8B48900A86ACD /* SQVector.c */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -499,6 +504,7 @@
 				CF7B644524D1603400F6C48E /* SQTile.c in Sources */,
 				CF4EE37524DF550D00569B09 /* Functions.c in Sources */,
 				CF8AA37D24D5D009004598D9 /* cJSON.c in Sources */,
+				CFD38BA324E8B48900A86ACD /* SQVector.c in Sources */,
 				CF4EE37224DF3FEB00569B09 /* SQArray.c in Sources */,
 				CF7B644324D1603400F6C48E /* main.c in Sources */,
 				CF8AA38024D5D09B004598D9 /* cJSON_Utils.c in Sources */,
