@@ -21,7 +21,7 @@ SDL_Texture* makeRenderTarget(SDL_Window* window, SDL_Renderer* renderer) {
     int windowW = 0;
     int windowH = 0;
     SDL_GetWindowSize(window, &windowW, &windowH);
-    double aspectRatio = (double)windowH / windowH;
+    double aspectRatio = (double)windowW / windowH;
     
     int renderW;
     int renderH;

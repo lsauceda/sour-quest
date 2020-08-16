@@ -138,7 +138,6 @@ void SQLevel_Render(struct SQLevel level, SDL_Texture *target) {
         struct SQVector tilePosition = SQVectorInit(x, y);
         tilePosition = SQVector_Subtract(tilePosition, level.cameraPosition);
         
-        // FIXME: Image is not getting stretched appropriately
         SDL_Rect destination = {tilePosition.x, tilePosition.y, SQ_TILE_WIDTH, SQ_TILE_HEIGHT};
         SDL_RenderCopy(level.renderer, tile.texture, &tile.rect, &destination);
     }
