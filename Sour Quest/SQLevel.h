@@ -23,12 +23,12 @@ struct SQLevel {
     SDL_Renderer *renderer;
     struct SQTileMap tilemap;
     cpVect cameraPosition;
-    
+    cpVect cameraSize;
 };
 
-struct SQLevel SQLevelInit(SDL_Renderer*, struct SQTileMap, cpVect);
+struct SQLevel SQLevelInit(SDL_Renderer*, struct SQTileMap, cpVect, cpVect);
 
-int SQLevel_ReadFromFile(struct SQLevel*, struct SQTileMap*, struct SQArray*, SDL_Renderer*, const char* fileName);
+int SQLevel_ReadFromFile(struct SQLevel*, struct SQTileMap*, struct SQArray*, SDL_Renderer*, const char* fileName, cpVect);
 
 int SQLevel_SetBackgroundColor(struct SQLevel*, SDL_Color);
 

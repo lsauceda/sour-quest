@@ -17,7 +17,18 @@
 const int targetX = 256;
 const int targetY = 240;
 
-SDL_Texture* createRenderTarget(SDL_Window* window, SDL_Renderer* renderer) {
+/*!
+ @brief Creates a texture for rendering the level
+ @discussion This function will create a texture for rendering levels at their native size.
+ The textue is created with SDL_TEXTUREACCESS_TARGET so you can safely pass it to
+ a renderer.
+ @param window pointer to the game window
+ @param renderer pointer to a renderer associated with the window, should have been created with SDL_RENDERER_TARGETTEXTURE
+ @param width pointer to fill with the width of the texture, you can safely pass NULL
+ @param height pointer to fill the height of the texture, you can safely pass NULL
+ @return a pointer to the created texture or NULL
+ */
+SDL_Texture* createRenderTarget(SDL_Window* window, SDL_Renderer* renderer, int *width, int *height) {
     int windowW = 0;
     int windowH = 0;
     SDL_GetWindowSize(window, &windowW, &windowH);
@@ -38,6 +49,8 @@ SDL_Texture* createRenderTarget(SDL_Window* window, SDL_Renderer* renderer) {
          SDL_PIXELFORMAT_RGBA8888,
          SDL_TEXTUREACCESS_TARGET,
          renderW, renderH);
+    if (width) { *width = renderW; }
+    if (height) { *height = renderH; }
     return ret;
 }
 
@@ -66,14 +79,16 @@ int main(int argc, const char * argv[]) {
     SDL_Renderer *renderer = SDL_CreateRenderer
         (window, -1,
          SDL_RENDERER_ACCELERATED |
-         SDL_RENDERER_PRESENTVSYNC);
+         SDL_RENDERER_PRESENTVSYNC |
+         SDL_RENDERER_TARGETTEXTURE);
     if (renderer == NULL) {
         SDL_Log("Could not create renderer: %s\n", SDL_GetError());
         goto exitError3;
     }
     
-    
-    SDL_Texture* renderTarget = createRenderTarget(window, renderer);
+    int textureWidth = 0;
+    int textureHeight = 0;
+    SDL_Texture* renderTarget = createRenderTarget(window, renderer, &textureWidth, &textureHeight);
     if (!renderTarget) { goto exitError4; }
     
     // MARK: Load level
@@ -83,7 +98,7 @@ int main(int argc, const char * argv[]) {
     
     char* path = pathRelativeToResources("Level0.json");
     if(!path) { return 1; }
-    if (SQLevel_ReadFromFile(&level, &levelTilemap, &levelTilesets, renderer, path)) {
+    if (SQLevel_ReadFromFile(&level, &levelTilemap, &levelTilesets, renderer, path, cpv(textureWidth, textureHeight))) {
         SDL_Log("Could not load level\n");
         goto exitError4;
     }

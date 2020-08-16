@@ -8,12 +8,12 @@
 
 #include "SQLevel.h"
 
-struct SQLevel SQLevelInit(SDL_Renderer* renderer, struct SQTileMap tileMap, cpVect cameraPosition) {
-    return (struct SQLevel) {renderer, tileMap, cameraPosition};
+struct SQLevel SQLevelInit(SDL_Renderer* renderer, struct SQTileMap tileMap, cpVect cameraPosition, cpVect cameraSize) {
+    return (struct SQLevel) {renderer, tileMap, cameraPosition, cameraSize};
 }
 
 // TODO: Allow camera position to be specifieds
-int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struct SQArray *tilesets, SDL_Renderer* renderer, const char* fileName) {
+int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struct SQArray *tilesets, SDL_Renderer* renderer, const char* fileName, cpVect cameraSize) {
     char* text = fileToString(fileName);
     
     // Parse top level JSON object
@@ -96,7 +96,7 @@ int SQLevel_ReadFromFile(struct SQLevel* level, struct SQTileMap* tilemap, struc
     }
     
     // FIXME: Camera position is always zero (should be read from file)
-    struct SQLevel deserializedLevel = SQLevelInit(renderer, deserializedMap, cpvzero);
+    struct SQLevel deserializedLevel = SQLevelInit(renderer, deserializedMap, cpvzero, cameraSize);
     
     // Set return values
     *tilesets = deserializedTilesets;
@@ -130,6 +130,7 @@ void SQLevel_Render(struct SQLevel level, SDL_Texture *target) {
     int nTiles = level.tilemap.width * level.tilemap.height;
     for (int i = 0; i < nTiles; i++) {
         struct SQTile tile = level.tilemap.tiles[i];
+        // Cull empty tiles
         if (tile.texture == NULL) { continue; }
 
         div_t coordinates = div(i, level.tilemap.width);
@@ -137,6 +138,21 @@ void SQLevel_Render(struct SQLevel level, SDL_Texture *target) {
         int y = coordinates.quot * SQ_TILE_HEIGHT;
         cpVect tilePosition = cpv(x, y);
         tilePosition = cpvsub(tilePosition, level.cameraPosition);
+        
+        cpBB tileRect = cpBBNew(
+            tilePosition.x,
+            tilePosition.y,
+            tilePosition.x + SQ_TILE_WIDTH,
+            tilePosition.y + SQ_TILE_HEIGHT
+        );
+        cpBB cameraRect = cpBBNew(
+            level.cameraPosition.x,
+            level.cameraPosition.y,
+            level.cameraPosition.x + level.cameraSize.x,
+            level.cameraPosition.y + level.cameraSize.y
+        );
+        // Cull out-of-camera-bounds tiles
+        if (!cpBBIntersects(cameraRect, tileRect)) { continue; }
         
         SDL_Rect destination = {tilePosition.x, tilePosition.y, SQ_TILE_WIDTH, SQ_TILE_HEIGHT};
         SDL_RenderCopy(level.renderer, tile.texture, &tile.rect, &destination);
