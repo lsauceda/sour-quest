@@ -17,7 +17,7 @@
 const int targetX = 256;
 const int targetY = 240;
 
-SDL_Texture* makeRenderTarget(SDL_Window* window, SDL_Renderer* renderer) {
+SDL_Texture* createRenderTarget(SDL_Window* window, SDL_Renderer* renderer) {
     int windowW = 0;
     int windowH = 0;
     SDL_GetWindowSize(window, &windowW, &windowH);
@@ -73,7 +73,7 @@ int main(int argc, const char * argv[]) {
     }
     
     
-    SDL_Texture* renderTarget = makeRenderTarget(window, renderer);
+    SDL_Texture* renderTarget = createRenderTarget(window, renderer);
     if (!renderTarget) { goto exitError4; }
     
     // MARK: Load level
