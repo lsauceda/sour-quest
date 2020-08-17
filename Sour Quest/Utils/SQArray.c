@@ -62,6 +62,28 @@ int SQArray_AppendArray(struct SQArray* array, const struct SQArray source) {
     return SQArray_AppendData(array, source.length, source.items);
 }
 
+int SQArray_DeleteItem(struct SQArray* array, const void *item) {
+    int ret = 0;
+    int i = 0;
+    while (i < array->length) {
+        // FIXME: Is char guaranteed to be 1 byte?
+        void *arrayItem = ((char*)array->items + (i * array->elementSize));
+        if (!memcmp(arrayItem, item, array->elementSize)) {
+            array->length--;
+            if (i < array->length) {
+                // FIXME: Is char guaranteed to be 1 byte?
+                void *nextElement = ((char*)arrayItem + array->elementSize);
+                memmove(arrayItem, nextElement, (array->length - i) * array->elementSize);
+            }
+            ret++;
+        } else {
+            i++;
+        }
+    }
+    
+    return ret;
+}
+
 void SQArrayDeinit(struct SQArray * array) {
     array->elementSize = 0;
     array->capacity = 0;

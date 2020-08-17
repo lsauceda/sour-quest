@@ -36,6 +36,8 @@ int SQArray_AppendData(struct SQArray* array, int length, const void *data);
 
 int SQArray_AppendArray(struct SQArray* array, const struct SQArray source);
 
+int SQArray_DeleteItem(struct SQArray* array, const void *item);
+
 void SQArrayDeinit(struct SQArray * array);
 
 #endif /* SQArray_h */
