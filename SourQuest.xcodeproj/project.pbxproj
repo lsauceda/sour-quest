@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		CF2FC4F524E9E9B50021AEB5 /* SQEntity.c in Sources */ = {isa = PBXBuildFile; fileRef = CF2FC4F424E9E9B50021AEB5 /* SQEntity.c */; };
 		CF349AD224D16D130006F5C7 /* SDL2_image.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = CF349ACA24D168E10006F5C7 /* SDL2_image.framework */; };
 		CF349AD324D16D130006F5C7 /* SDL2_image.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = CF349ACA24D168E10006F5C7 /* SDL2_image.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		CF349AD824D16E9E0006F5C7 /* CakeFloor.png in Resources */ = {isa = PBXBuildFile; fileRef = CF349AD724D16E9E0006F5C7 /* CakeFloor.png */; };
@@ -161,6 +162,9 @@
 		CF186B7B24CE6A6900AB5D06 /* SQTile.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SQTile.c; sourceTree = "<group>"; };
 		CF186B7D24CE774100AB5D06 /* SQLevel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQLevel.h; sourceTree = "<group>"; };
 		CF186B7E24CE774100AB5D06 /* SQLevel.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SQLevel.c; sourceTree = "<group>"; };
+		CF2FC4F324E9E9B50021AEB5 /* SQEntity.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQEntity.h; sourceTree = "<group>"; };
+		CF2FC4F424E9E9B50021AEB5 /* SQEntity.c */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.c; path = SQEntity.c; sourceTree = "<group>"; };
+		CF2FC4F924E9EA100021AEB5 /* SQECS.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQECS.h; sourceTree = "<group>"; };
 		CF349AC324D168E10006F5C7 /* SDL_image.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SDL_image.xcodeproj; path = "../../Downloads/SDL2_image-2.0.5/Xcode/SDL_image.xcodeproj"; sourceTree = "<group>"; };
 		CF349AD724D16E9E0006F5C7 /* CakeFloor.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; name = CakeFloor.png; path = "../../../../Downloads/Pixel Art/Tilemaps/CakeFloor.png"; sourceTree = "<group>"; };
 		CF4EE37024DF3FEB00569B09 /* SQArray.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SQArray.h; sourceTree = "<group>"; };
@@ -195,6 +199,16 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		CF2FC4E224E9E9430021AEB5 /* ECS */ = {
+			isa = PBXGroup;
+			children = (
+				CF2FC4F924E9EA100021AEB5 /* SQECS.h */,
+				CF2FC4F324E9E9B50021AEB5 /* SQEntity.h */,
+				CF2FC4F424E9E9B50021AEB5 /* SQEntity.c */,
+			);
+			path = ECS;
+			sourceTree = "<group>";
+		};
 		CF349AC424D168E10006F5C7 /* Products */ = {
 			isa = PBXGroup;
 			children = (
@@ -229,6 +243,7 @@
 		CF7B643024D15FE800F6C48E /* Sour Quest */ = {
 			isa = PBXGroup;
 			children = (
+				CF2FC4E224E9E9430021AEB5 /* ECS */,
 				CFD38C2324E9101100A86ACD /* Frameworks */,
 				CF349AD624D16E890006F5C7 /* Resources */,
 				CF8AA36A24D5CF45004598D9 /* cJSON */,
@@ -503,6 +518,7 @@
 				CF7B644524D1603400F6C48E /* SQTile.c in Sources */,
 				CF4EE37524DF550D00569B09 /* Functions.c in Sources */,
 				CF8AA37D24D5D009004598D9 /* cJSON.c in Sources */,
+				CF2FC4F524E9E9B50021AEB5 /* SQEntity.c in Sources */,
 				CF4EE37224DF3FEB00569B09 /* SQArray.c in Sources */,
 				CF7B644324D1603400F6C48E /* main.c in Sources */,
 				CF8AA38024D5D09B004598D9 /* cJSON_Utils.c in Sources */,
